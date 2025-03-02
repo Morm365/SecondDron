@@ -1,4 +1,4 @@
-# Unity-generated files
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -7,18 +7,16 @@
 [Ll]ogs/
 [Uu]serSettings/
 
-# Visual Studio / Rider files
-.vs/
+
+Packages/com.unity.package-manager/
+Library/PackageCache/
+
+
 *.csproj
 *.sln
-*.suo
 *.user
 *.pidb
-*.booproj
-*.svd
 *.pdb
+*.svd
 *.opendb
 *.VC.db
-
-# Other
-*.unitypackage
