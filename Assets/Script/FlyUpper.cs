@@ -16,19 +16,54 @@ public class FlyUpper : MonoBehaviour
 
     void Start()
     {
+
+
+
+        if (energyBar == null)
+        {
+
+
+            GameObject energyObject = GameObject.FindGameObjectWithTag("Energy");
+
+            if (energyObject != null)
+            {
+
+                energyBar = energyObject.GetComponent<EnergyBar>();
+
+
+            }
+
+            else
+            {
+                Debug.LogError("NO ENERGY BAR");
+            }
+
+
+        }
+
+
+
+
+
+
         robot = GetComponent<Rigidbody2D>();
 
-
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ground"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Wall"));
 
     }
 
 
     void Update()
     {
+
+        float horizontPower = robot.velocity.x;
+
+
         if (Input.GetKey(KeyCode.Space) && energyBar.energyPoints > 0)
         {
 
-            robot.velocity = new Vector2(robot.velocity.x, upSpeed);
+            robot.velocity = new Vector2(horizontPower, upSpeed);
 
           
 
@@ -41,7 +76,7 @@ public class FlyUpper : MonoBehaviour
 
         else
         {
-            robot.velocity = new Vector2(robot.velocity.x, artrificalGravity);
+            robot.velocity = new Vector2(horizontPower, artrificalGravity);
 
 
         }
